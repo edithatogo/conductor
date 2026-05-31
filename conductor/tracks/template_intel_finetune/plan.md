@@ -29,9 +29,9 @@
   - Completed 2026-05-31: added `training/fine-tuning/validate_openvino_cpu_latency.py` and validated FP vs INT8 OpenVINO IR on CPU over 50 measured iterations after 5 warmups. INT8 predictions were finite; INT8 mean latency was `0.061286 ms`, p95 was `0.087240 ms`, and max FP-vs-INT8 absolute difference was `0.64642227`. Metrics saved to `training/fine-tuning/lfm2.5-1.2b-intel-lora-smoke/cpu_latency.json`. `python -m pytest training\tests\test_intel_lora_config.py` still passed with 6 tests. See `training/fine-tuning/cpu-latency-verification.md`.
 
 ## Phase 4: Hub Synchronization
-- [~] Task: Push final ONNX/OpenVINO model schema artifacts to Hugging Face Model Hub.
-  - Blocked 2026-05-31: prepared Hugging Face model-card/upload package under `training/fine-tuning/lfm2.5-1.2b-intel-lora-smoke`, targeting `edithatogo/lfm2.5-1.2b-intel-lora`, but external repo creation/upload requires explicit visibility confirmation (`public` or `private`) before publishing local files. See `training/fine-tuning/publish-readiness.md`.
-- [~] Task: Push optimization code pipelines and configurations to GitHub.
-  - Blocked 2026-05-31: prepared root repository commits and publish manifest targeting `edithatogo/models_lang`, but external GitHub repo creation/push requires explicit visibility confirmation (`public` or `private`) before publishing local files. See `training/fine-tuning/publish-readiness.md`.
-- [~] Task: Verification: Confirm remote download links and schemas match local checkpoints.
-  - Blocked 2026-05-31: remote download links cannot be verified until the GitHub and Hugging Face repositories are created and the prepared local artifacts are pushed. External publication remains blocked pending explicit visibility confirmation (`public` or `private`). See `training/fine-tuning/publish-readiness.md`.
+- [x] Task: Push final ONNX/OpenVINO model schema artifacts to Hugging Face Model Hub.
+  - Completed 2026-05-31: created public Hugging Face model repo `edithatogo/lfm2.5-1.2b-intel-lora` and uploaded the prepared ONNX/OpenVINO smoke artifacts. Final upload commit: `https://huggingface.co/edithatogo/lfm2.5-1.2b-intel-lora/commit/91f6077b131deb59b05845d4db689d60329ec774`. See `training/fine-tuning/publish-readiness.md` and `training/fine-tuning/publish-verification.md`.
+- [x] Task: Push optimization code pipelines and configurations to GitHub.
+  - Completed 2026-05-31: created public GitHub repo `edithatogo/models_lang`, pushed `main`, and verified remote head `62687c8633881d3bf83a9224837a53bb0df20da7`. See `https://github.com/edithatogo/models_lang`, `training/fine-tuning/publish-readiness.md`, and `training/fine-tuning/publish-verification.md`.
+- [x] Task: Verification: Confirm remote download links and schemas match local checkpoints.
+  - Completed 2026-05-31: verified GitHub repo metadata reports `visibility=PUBLIC` and default branch `main`; downloaded selected Hugging Face files to `C:\tmp\models_lang_hf_verify` and matched SHA-256 hashes against local `README.md`, `cpu_latency.json`, `openvino-int8/model_int8_quantization.json`, and `model.json`. See `training/fine-tuning/publish-verification.md`.
