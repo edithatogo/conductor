@@ -33,4 +33,5 @@
   - Blocked 2026-05-31: prepared Hugging Face model-card/upload package under `training/fine-tuning/lfm2.5-1.2b-intel-lora-smoke`, targeting `edithatogo/lfm2.5-1.2b-intel-lora`, but external repo creation/upload requires explicit visibility confirmation (`public` or `private`) before publishing local files. See `training/fine-tuning/publish-readiness.md`.
 - [~] Task: Push optimization code pipelines and configurations to GitHub.
   - Blocked 2026-05-31: prepared root repository commits and publish manifest targeting `edithatogo/models_lang`, but external GitHub repo creation/push requires explicit visibility confirmation (`public` or `private`) before publishing local files. See `training/fine-tuning/publish-readiness.md`.
-- [ ] Task: Verification: Confirm remote download links and schemas match local checkpoints.
+- [~] Task: Verification: Confirm remote download links and schemas match local checkpoints.
+  - Blocked 2026-05-31: remote download links cannot be verified until the GitHub and Hugging Face repositories are created and the prepared local artifacts are pushed. External publication remains blocked pending explicit visibility confirmation (`public` or `private`). See `training/fine-tuning/publish-readiness.md`.
