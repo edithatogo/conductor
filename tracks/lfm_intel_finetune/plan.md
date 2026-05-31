@@ -11,9 +11,12 @@
   - Blocked 2026-05-31: verification still fails because `intel_extension_for_pytorch` is not available on Windows for the active Python pairing.
 
 ## Phase 2: LFM BF16 Training
-- [ ] Task: Download `LiquidAI/lfm2.5-1.2b-instruct` files locally.
-- [ ] Task: Configure Hugging Face token mapping via environment variables.
-- [ ] Task: Write PyTorch script with IPEX optimizations applying BF16 precision.
+- [~] Task: Download `LiquidAI/lfm2.5-1.2b-instruct` files locally.
+  - Partial 2026-05-31: downloaded the public tokenizer/config metadata files with `training/fine-tuning/download_lfm_base_metadata.py` to `C:\tmp\lfm2.5-1.2b-instruct-meta-script`. Full checkpoint weights are still pending.
+- [x] Task: Configure Hugging Face token mapping via environment variables.
+  - Completed 2026-05-31: added `training/fine-tuning/download_lfm_base_metadata.py`, which resolves tokens from `HF_TOKEN`, `HUGGINGFACE_HUB_TOKEN`, and `HF_HUB_TOKEN`, with explicit-token override support.
+- [x] Task: Write PyTorch script with IPEX optimizations applying BF16 precision.
+  - Completed 2026-05-31: `training/fine-tuning/intel_lora_train.py` already provides BF16 LoRA defaults, lazy IPEX resolution, and optional IPEX optimization hooks for the LFM track.
 - [ ] Task: Run 1-epoch test run to verify adapter weights compile.
 - [ ] Task: Verification: Confirm adapter saves to `training/fine-tuning/lfm2.5-1.2b-intel-lora`.
 
