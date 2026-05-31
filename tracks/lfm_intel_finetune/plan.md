@@ -12,7 +12,7 @@
 
 ## Phase 2: LFM BF16 Training
 - [~] Task: Download `LiquidAI/lfm2.5-1.2b-instruct` files locally.
-  - Partial 2026-05-31: downloaded the public tokenizer/config metadata files with `training/fine-tuning/download_lfm_base_metadata.py` to `C:\tmp\lfm2.5-1.2b-instruct-meta-script`. Full checkpoint weights are still pending.
+  - Partial 2026-05-31: downloaded the public tokenizer/config metadata files with `training/fine-tuning/download_lfm_base_metadata.py` to `C:\tmp\lfm2.5-1.2b-instruct-meta-script`. Verified with `training/fine-tuning/intel_lora_train.py --preflight-only` that tokenizer/config load locally and tokenization produces `input_ids`, `attention_mask`, and `labels`. Full checkpoint weights are still pending.
 - [x] Task: Configure Hugging Face token mapping via environment variables.
   - Completed 2026-05-31: added `training/fine-tuning/download_lfm_base_metadata.py`, which resolves tokens from `HF_TOKEN`, `HUGGINGFACE_HUB_TOKEN`, and `HF_HUB_TOKEN`, with explicit-token override support.
 - [x] Task: Write PyTorch script with IPEX optimizations applying BF16 precision.
