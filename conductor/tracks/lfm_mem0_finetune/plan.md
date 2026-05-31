@@ -18,6 +18,8 @@
 
 ## Phase 4: LFM2-ColBERT Retrieval Fine-Tuning
 - [x] Task: Add `training/mem0/lfm2_colbert_finetune.py` entrypoint for PyLate contrastive triplet training.
+- [x] Task: Add `training/mem0/lfm2_colbert_sidecar.py` HTTP sidecar for mem0 upsert/search.
+- [x] Task: Start lazy-loading sidecar on `http://127.0.0.1:8766` and verify `/health` plus `/mem0/config`.
 - [ ] Task: Build or download mem0-style query/positive/negative triplets.
 - [ ] Task: Run LFM2-ColBERT fine-tuning and save adapters under `training/fine-tuning/lfm2-colbert-350m-mem0`.
 - [ ] Task: Verification: Evaluate MaxSim retrieval quality on held-out mem0 query/fact pairs.
