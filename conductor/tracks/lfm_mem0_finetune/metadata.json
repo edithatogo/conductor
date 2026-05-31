@@ -1,0 +1,8 @@
+{
+  "track_id": "lfm_mem0_finetune",
+  "type": "feature",
+  "status": "in_progress",
+  "created_at": "2026-05-31T20:32:00Z",
+  "updated_at": "2026-05-31T21:35:00Z",
+  "description": "LFM: mem0 integration with LFM2-ColBERT retrieval embeddings plus LFM2.5 fact-extraction fine-tuning"
+}
