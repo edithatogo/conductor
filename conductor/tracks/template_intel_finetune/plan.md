@@ -1,14 +1,14 @@
 # Track Plan: Intel Chip Optimization Fine-Tuning (Template)
 
 ## Phase 1: Environment Setup
-- [~] Task: Install `intel-extension-for-pytorch` matching PyTorch version.
-  - Blocked 2026-05-31: active Windows Python has PyTorch `2.12.0+cpu`, pip finds no compatible Windows IPEX wheel, WSL is not installed, and current Intel docs recommend native PyTorch because IPEX is EOL by end of March 2026. See `training/fine-tuning/intel-ipex-install-diagnosis.md`.
+- [~] Task: Install or classify `intel-extension-for-pytorch` availability.
+  - Classified 2026-05-31: active Windows Python has PyTorch `2.12.0+cpu`, pip finds no compatible Windows IPEX wheel, WSL is not installed, and current Intel docs recommend native PyTorch because IPEX is EOL by end of March 2026. IPEX is legacy optional for compatible Linux runtimes only; Windows proceeds with native PyTorch plus OpenVINO/NNCF. See `training/fine-tuning/intel-ipex-install-diagnosis.md`.
 - [x] Task: Install `openvino` and `openvino-dev` libraries.
   - Completed 2026-05-31: installed `openvino==2024.6.0` and `openvino-dev==2024.6.0` into the active Python 3.11 environment. Verified `import openvino` and PyTorch import. `pip check` still reports missing `voxcpm` dependencies unrelated to OpenVINO. See `training/fine-tuning/openvino-install-verification.md`.
 - [x] Task: Authenticate local Hugging Face and GitHub CLIs.
   - Completed 2026-05-31: verified `gh auth status` is authenticated as `edithatogo` and `hf auth whoami` is authenticated as `edithatogo`. Token values were not recorded. See `training/fine-tuning/cli-auth-verification.md`.
-- [~] Task: Verification: Check PyTorch loads IPEX backend successfully using `python -c "import intel_extension_for_pytorch as ipex"`.
-  - Blocked 2026-05-31: verification command fails with `ModuleNotFoundError: No module named 'intel_extension_for_pytorch'`, while PyTorch imports as `2.12.0+cpu`. This confirms the IPEX install blocker. See `training/fine-tuning/ipex-verification-result.md`.
+- [~] Task: Verification: Check optional IPEX backend availability using `python -c "import intel_extension_for_pytorch as ipex"`.
+  - Legacy optional 2026-05-31: verification command fails with `ModuleNotFoundError: No module named 'intel_extension_for_pytorch'`, while PyTorch imports as `2.12.0+cpu`. This confirms IPEX is unavailable on this Windows host, not that the native PyTorch/OpenVINO path is blocked. See `training/fine-tuning/ipex-verification-result.md`.
 
 ## Phase 2: Fine-Tuning Pipeline
 - [x] Task: Configure LoRA script with IPEX optimizations (use BF16 mixed-precision).

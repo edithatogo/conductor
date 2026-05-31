@@ -1,0 +1,8 @@
+{
+  "track_id": "lfm_intel_finetune",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-05-31T20:30:00Z",
+  "updated_at": "2026-05-31T20:30:00Z",
+  "description": "LFM: Model Fine-Tuning and Optimization for Intel hardware (native PyTorch/OpenVINO, optional legacy IPEX)"
+}
