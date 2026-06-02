@@ -7,9 +7,10 @@
 - [x] Task: Verification: Add tests that reject treating the model as a single-vector embedding provider.
 
 ## Phase 2: Fact Extraction Training Data Preparation
-- [ ] Task: Download dialogue-to-fact datasets (such as mem0 default datasets).
-- [ ] Task: Parse datasets to strictly match the LFM chat template (`<|im_start|>system`, etc.).
-- [ ] Task: Verification: Verify dataset parses via Python check script.
+- [x] Task: Build bootstrap dialogue-to-fact dataset under `training/mem0/datasets/bootstrap`.
+- [x] Task: Parse datasets to strictly match the LFM chat template (`<|im_start|>system`, etc.).
+- [x] Task: Verification: Verify dataset parses via Python check script.
+- [ ] Task: Download or curate larger production dialogue-to-fact datasets.
 
 ## Phase 3: LFM Fact Extraction LoRA Training
 - [ ] Task: Configure LoRA parameters (r=16, alpha=32, target modules: all linear layers).
@@ -20,7 +21,8 @@
 - [x] Task: Add `training/mem0/lfm2_colbert_finetune.py` entrypoint for PyLate contrastive triplet training.
 - [x] Task: Add `training/mem0/lfm2_colbert_sidecar.py` HTTP sidecar for mem0 upsert/search.
 - [x] Task: Start lazy-loading sidecar on `http://127.0.0.1:8766` and verify `/health` plus `/mem0/config`.
-- [ ] Task: Build or download mem0-style query/positive/negative triplets.
+- [x] Task: Build bootstrap mem0-style query/positive/negative triplets under `training/mem0/datasets/bootstrap`.
+- [ ] Task: Download or curate larger production mem0-style query/positive/negative triplets.
 - [ ] Task: Run LFM2-ColBERT fine-tuning and save adapters under `training/fine-tuning/lfm2-colbert-350m-mem0`.
 - [ ] Task: Verification: Evaluate MaxSim retrieval quality on held-out mem0 query/fact pairs.
 
